@@ -66,6 +66,7 @@ Page {
             visible: taskDetails.editMode
             
             onCancel: {
+                titleField.text = contentView.title
                 titleLabel.text = contentView.title;
                 descriptionLabel.text = contentView.description;
                 doneCB.checked = contentView.done == 1;
