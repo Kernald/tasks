@@ -8,6 +8,10 @@ NavigationPane {
     
     Page {
         id: taskListPage
+        titleBar: TitleBar {
+            title: "Tasks"
+        }
+        
         Container {
             ListView {
                 id: tasksList
