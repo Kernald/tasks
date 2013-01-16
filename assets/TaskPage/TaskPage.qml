@@ -1,6 +1,10 @@
 import bb.cascades 1.0
 
 Page {
+    titleBar: TitleBar {
+        title: taskDetails.editMode ? "Edit" : "Details"
+    }
+    
     Container {
         id: taskDetails
         property bool editMode: false
