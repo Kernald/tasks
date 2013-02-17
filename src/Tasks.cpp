@@ -58,6 +58,17 @@ void Tasks::updateSelectedRecord(const QString& title, const QString& descriptio
 	}
 }
 
+void Tasks::updateSelectedRecordDoneStatus(int done) {
+	QVariantList indexPath = _listView->selected();
+	if (!indexPath.isEmpty()) {
+		QVariantMap map = _dataModel->data(indexPath).toMap();
+		map["done"] = done;
+
+		_dbHelper->update(map);
+		_dataModel->updateItem(indexPath, map);
+	}
+}
+
 void Tasks::deleteRecord() {
 	QVariantList indexPath = _listView->selected();
 	if (!indexPath.isEmpty()) {

@@ -25,6 +25,7 @@ public:
     //TODO done
     Q_INVOKABLE void addNewRecord(const QString& title, const QString& description);
     Q_INVOKABLE void updateSelectedRecord(const QString& title, const QString& description, int done);
+    Q_INVOKABLE void updateSelectedRecordDoneStatus(int done);
     Q_INVOKABLE void deleteRecord();
 
 private:
