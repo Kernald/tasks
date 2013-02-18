@@ -36,7 +36,7 @@ NavigationPane {
                         type: "item"
                         StandardListItem {
                             imageSpaceReserved: false
-                            title: ListItemData.title
+                            title: (ListItemData.done == 1 ? "<html><span style='text-decoration:line-through'>" : "") + ListItemData.title + (ListItemData.done == 1 ? "</span></html>" : "")
                             id: taskItemId
                             
                             contextActions: [
