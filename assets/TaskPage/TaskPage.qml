@@ -49,7 +49,7 @@ Page {
 	            checked: contentView.done == 1
 	            enabled: taskDetails.editMode
 	            onCheckedChanged: {
-	                editControls.updateEnabled = editControls.updateEnabled || checked != (contentView.done == "true");
+	                editControls.updateEnabled = editControls.updateEnabled || checked != (contentView.done == 1);
 	            }
             }
 	        
