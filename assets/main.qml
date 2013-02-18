@@ -9,7 +9,7 @@ NavigationPane {
     Page {
         id: taskListPage
         titleBar: TitleBar {
-            title: "Tasks"
+            title: qsTr("Tasks")
         }
         
         Container {
@@ -43,7 +43,7 @@ NavigationPane {
                                 ActionSet {
                                     title: contentView.title
                                     ActionItem {
-                                        title: "View"
+                                        title: qsTr("View")
                                         imageSource: "asset:///images/ViewDetails.png"
                                         
                                         onTriggered: {
@@ -51,7 +51,7 @@ NavigationPane {
                                         }
                                     }
                                     ActionItem {
-                                        title: ListItemData.done == 0 ? "Done" : "Todo"
+                                        title: ListItemData.done == 0 ? qsTr("Done") : qsTr("Todo")
                                         imageSource: "asset:///images/Done.png"
                                         
                                         onTriggered: {
@@ -65,7 +65,7 @@ NavigationPane {
                     ListItemComponent {
                         type: "header"
                         Header {
-                            title: ListItemData == 1 ? "Done" : "Todo"
+                            title: ListItemData == 1 ? qsTr("Done") : qsTr("Todo")
                         }
                     }
                 ]
@@ -136,7 +136,7 @@ NavigationPane {
         
         actions: [
             ActionItem {
-                title: "Add"
+                title: qsTr("Add")
                 imageSource: "asset:///images/Add.png"
                 ActionBar.placement: ActionBarPlacement.OnBar
                 onTriggered: {

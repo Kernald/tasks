@@ -2,7 +2,7 @@ import bb.cascades 1.0
 
 Page {
     titleBar: TitleBar {
-        title: taskDetails.editMode ? "Edit" : "Details"
+        title: taskDetails.editMode ? qsTr("Edit") : qsTr("Details")
     }
     
     Container {
@@ -35,7 +35,7 @@ Page {
  	            horizontalAlignment: HorizontalAlignment.Center
  	            text: contentView.title
  	            visible: taskDetails.editMode
- 	            hintText: "Title"
+ 	            hintText: qsTr("Title")
                 textStyle.textAlign: TextAlign.Center
                 inputMode: TextFieldInputMode.Text
                 onTextChanging: {
@@ -45,7 +45,7 @@ Page {
 	        
 	        CheckBox {
 	            id: doneCB
-	            text: "Done"
+	            text: qsTr("Done")
 	            checked: contentView.done == 1
 	            enabled: taskDetails.editMode
 	            onCheckedChanged: {
@@ -58,7 +58,7 @@ Page {
 	            horizontalAlignment: HorizontalAlignment.Center
 	            editable: taskDetails.editMode
 	            text: contentView.description
-	            hintText: "Description"
+	            hintText: qsTr("Description")
                 onTextChanging: {
                     editControls.updateEnabled = editControls.updateEnabled || text != contentView.description;
                 }
@@ -87,7 +87,7 @@ Page {
     
     paneProperties: NavigationPaneProperties {
         backButton: ActionItem {
-            title: "Tasks"
+            title: qsTr("Tasks")
             onTriggered: {
                 nav.pop();
                 taskDetails.editMode = false;
@@ -97,7 +97,7 @@ Page {
     
     actions: [
         ActionItem {
-            title: "Edit"
+            title: qsTr("Edit")
             imageSource: "asset:///images/Edit.png"
             ActionBar.placement: ActionBarPlacement.OnBar
             
@@ -109,7 +109,7 @@ Page {
         
         DeleteActionItem {
             objectName: "DeleteAction"
-            title: "Delete"
+            title: qsTr("Delete")
             
             onTriggered: {
                 _taskApp.deleteRecord();

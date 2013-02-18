@@ -6,18 +6,18 @@ Page {
     
     titleBar: TitleBar {
         id: addBar
-        title: "Add"
+        title: qsTr("Add")
         visibility: ChromeVisibility.Visible
         
         dismissAction: ActionItem {
-            title: "Cancel"
+            title: qsTr("Cancel")
             onTriggered: {
                 addPage.addPageClose();
             }
         }
         
         acceptAction: ActionItem {
-            title: "Save"
+            title: qsTr("Save")
             enabled: false
             onTriggered: {
                 _taskApp.addNewRecord(titleField.text, descriptionField.text);
@@ -44,7 +44,7 @@ Page {
                 id: titleField
                 topMargin: editPane.margins
                 bottomMargin: topMargin
-                hintText: "Title"
+                hintText: qsTr("Title")
                 
                 onTextChanging: {
                     addPage.titleBar.acceptAction.enabled = text.length > 0;
@@ -53,7 +53,7 @@ Page {
             
             TextArea {
                 id: descriptionField
-                hintText: "Description"
+                hintText: qsTr("Description")
                 topMargin: editPane.margins
                 bottomMargin: topMargin
                 preferredHeight: 450

@@ -12,7 +12,7 @@ Container {
     }
     
     Button {
-        text: "Cancel"
+        text: qsTr("Cancel")
         layoutProperties: StackLayoutProperties {
             spaceQuota: 1
         }
@@ -33,7 +33,7 @@ Container {
     
     Button {
         id: updateButton
-        text: "Update"
+        text: qsTr("Update")
         enabled: updateEnabled
         layoutProperties: StackLayoutProperties {
             spaceQuota: 1
