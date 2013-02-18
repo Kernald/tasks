@@ -8,7 +8,7 @@ Page {
     Container {
         id: taskDetails
         property bool editMode: false
-        
+        background: backgroundPaint.imagePaint
         property real margins: 40
         topPadding: taskDetails.margins
         leftPadding: taskDetails.margins
@@ -83,6 +83,14 @@ Page {
                 taskDetails.editMode = false;
             }
         }
+        
+        attachedObjects: [
+            ImagePaintDefinition {
+                id: backgroundPaint
+                imageSource: "asset:///images/background.amd"
+                repeatPattern: RepeatPattern.XY
+            }
+        ]
     }
     
     paneProperties: NavigationPaneProperties {

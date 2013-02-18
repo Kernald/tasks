@@ -13,6 +13,8 @@ NavigationPane {
         }
         
         Container {
+            background: backgroundPaint.imagePaint
+            
             ListView {
                 id: tasksList
                 objectName: "tasksList"
@@ -125,6 +127,13 @@ NavigationPane {
                     }
                 ]
             }
+            attachedObjects: [
+                ImagePaintDefinition {
+                    id: backgroundPaint
+                    imageSource: "asset:///images/background.amd"
+                    repeatPattern: RepeatPattern.XY
+                }
+            ]
         }
         attachedObjects: [
             Sheet {

@@ -28,8 +28,8 @@ Page {
     
     Container {
         id: editPane
+        background: backgroundPaint.imagePaint
         property real margins: 40
-        background: Color.create("#f8f8f8")
         topPadding: editPane.margins
         leftPadding: editPane.margins
         rightPadding: editPane.margins
@@ -61,6 +61,13 @@ Page {
                 horizontalAlignment: HorizontalAlignment.Fill
             }
         }
+        attachedObjects: [
+            ImagePaintDefinition {
+                id: backgroundPaint
+                imageSource: "asset:///images/background.amd"
+                repeatPattern: RepeatPattern.XY
+            }
+        ]
     }
     
     function newTask() {
