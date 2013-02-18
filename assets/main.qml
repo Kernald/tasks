@@ -29,6 +29,10 @@ NavigationPane {
                 function updateDoneStatusTriggered() {
                     _taskApp.updateSelectedRecordDoneStatus(contentView.done == 0 ? 1 : 0);
                 }
+                
+                function deleteTriggered() {
+                    _taskApp.deleteRecord();
+                }
                                             
                 listItemComponents: [
                     ListItemComponent {
@@ -56,6 +60,14 @@ NavigationPane {
                                         
                                         onTriggered: {
                                             taskItemId.ListItem.view.updateDoneStatusTriggered();
+                                        }
+                                    }
+                                    DeleteActionItem {
+                                        objectName: "DeleteAction"
+                                        title: qsTr("Delete")
+                                        
+                                        onTriggered: {
+                                            taskItemId.ListItem.view.deleteTriggered();
                                         }
                                     }
                                 }
