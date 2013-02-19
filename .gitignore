@@ -1,3 +1,5 @@
 arm-p/
 arm/
 x86/
+
+*.qm

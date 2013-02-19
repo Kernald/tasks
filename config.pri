@@ -20,9 +20,12 @@ PRECOMPILED_HEADER = $$BASEDIR/precompiled.h
 
 lupdate_inclusion {
     SOURCES += \
-        $$BASEDIR/../assets/*.qml
+        $$BASEDIR/../assets/*.qml \
+        $$BASEDIR/../assets/AddPage/*.qml \
+        $$BASEDIR/../assets/TaskPage/*.qml
 }
 
 TRANSLATIONS = \
-    $${TARGET}.ts
+    $${TARGET}.ts \
+    $${TARGET}_fr.ts
 
