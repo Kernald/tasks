@@ -9,8 +9,14 @@
 
 using namespace bb::cascades;
 
+void standardOutput(QtMsgType type, const char* msg) {
+	fprintf(stdout, "%s\n", msg);
+	fflush(stdout);
+}
+
 Q_DECL_EXPORT int main(int argc, char **argv) {
     Application app(argc, argv);
+    qInstallMsgHandler(standardOutput);
 
     // localization support
     QTranslator translator;
