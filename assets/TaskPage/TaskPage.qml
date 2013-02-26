@@ -115,6 +115,16 @@ Page {
             }
         },
         
+        InvokeActionItem {
+            query {
+                mimeType: "text/plain"
+                invokeActionId: "bb.action.SHARE"
+            }
+            onTriggered: {
+                data = contentView.title + (contentView.description != "" ? " - " + contentView.description : "");
+            }
+        },
+        
         DeleteActionItem {
             objectName: "DeleteAction"
             title: qsTr("Delete")

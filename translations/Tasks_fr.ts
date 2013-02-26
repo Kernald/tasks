@@ -76,7 +76,7 @@
         <translation>Tâches</translation>
     </message>
     <message>
-        <location filename="../assets/TaskPage/TaskPage.qml" line="120"/>
+        <location filename="../assets/TaskPage/TaskPage.qml" line="130"/>
         <source>Delete</source>
         <translation>Supprimer</translation>
     </message>
@@ -95,23 +95,23 @@
     </message>
     <message>
         <location filename="../assets/main.qml" line="60"/>
-        <location filename="../assets/main.qml" line="82"/>
+        <location filename="../assets/main.qml" line="91"/>
         <source>Done</source>
         <translation>Fait</translation>
     </message>
     <message>
         <location filename="../assets/main.qml" line="60"/>
-        <location filename="../assets/main.qml" line="82"/>
+        <location filename="../assets/main.qml" line="91"/>
         <source>Todo</source>
         <translation>À faire</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="69"/>
+        <location filename="../assets/main.qml" line="78"/>
         <source>Delete</source>
         <translation>Supprimer</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="160"/>
+        <location filename="../assets/main.qml" line="169"/>
         <source>Add</source>
         <translation>Ajouter</translation>
     </message>

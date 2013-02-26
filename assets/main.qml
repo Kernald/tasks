@@ -64,6 +64,15 @@ NavigationPane {
                                             taskItemId.ListItem.view.updateDoneStatusTriggered();
                                         }
                                     }
+                                    InvokeActionItem {
+                                        query {
+                                            mimeType: "text/plain"
+                                            invokeActionId: "bb.action.SHARE"
+                                        }
+                                        onTriggered: {
+                                            data = ListItemData.title + (ListItemData.description != "" ? " - " + ListItemData.description : "");
+                                        }
+                                    }
                                     DeleteActionItem {
                                         objectName: "DeleteAction"
                                         title: qsTr("Delete")
