@@ -69,10 +69,6 @@
 <context>
     <name>main</name>
     <message>
-        <source>Tasks</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
@@ -90,6 +86,10 @@
     </message>
     <message>
         <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tasks</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

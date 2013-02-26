@@ -7,11 +7,13 @@ INCLUDEPATH +=  \
     $$BASEDIR/src
 
 SOURCES +=  \
+	$$BASEDIR/src/ActiveFrame.cpp \
     $$BASEDIR/src/Tasks.cpp \
     $$BASEDIR/src/TasksDbHelper.cpp \
     $$BASEDIR/src/main.cpp
 
 HEADERS +=  \
+	$$BASEDIR/src/ActiveFrame.hpp \
     $$BASEDIR/src/Tasks.hpp \
     $$BASEDIR/src/TasksDbHelper.hpp
 
@@ -22,6 +24,7 @@ lupdate_inclusion {
     SOURCES += \
         $$BASEDIR/../assets/*.qml \
         $$BASEDIR/../assets/AddPage/*.qml \
+        $$BASEDIR/../assets/AppCover/*.qml \
         $$BASEDIR/../assets/TaskPage/*.qml
 }
 

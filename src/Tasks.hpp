@@ -22,13 +22,18 @@ public:
     Tasks();
     virtual ~Tasks();
 
-    //TODO done
     Q_INVOKABLE void addNewRecord(const QString& title, const QString& description);
     Q_INVOKABLE void updateSelectedRecord(const QString& title, const QString& description, int done);
     Q_INVOKABLE void updateSelectedRecordDoneStatus(int done);
     Q_INVOKABLE void deleteRecord();
+    Q_INVOKABLE unsigned int taskCount() const;
+    Q_INVOKABLE unsigned int doneTaskCount() const;
+    Q_INVOKABLE unsigned int todoTaskCount() const;
+    Q_INVOKABLE QString randomTodoTask() const;
 
 private:
+    void setCover();
+
     TasksDbHelper*	_dbHelper;
     GroupDataModel*	_dataModel;
     ListView*		_listView;

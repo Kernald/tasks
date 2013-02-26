@@ -86,7 +86,7 @@
     <message>
         <location filename="../assets/main.qml" line="12"/>
         <source>Tasks</source>
-        <translation>Tâches</translation>
+        <translation type="unfinished">Tâches</translation>
     </message>
     <message>
         <location filename="../assets/main.qml" line="52"/>

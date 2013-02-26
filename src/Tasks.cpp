@@ -1,4 +1,6 @@
 #include "Tasks.hpp"
+
+#include "ActiveFrame.hpp"
 #include "TasksDbHelper.hpp"
 
 #include <bb/cascades/Application>
@@ -6,10 +8,12 @@
 #include <bb/cascades/ListView>
 #include <bb/cascades/NavigationPane>
 #include <bb/cascades/QmlDocument>
+#include <QtCore/QMap>
 
 using namespace bb::cascades;
 
 Tasks::Tasks() : QObject() {
+	_dataModel = NULL;
 	_dbHelper = new TasksDbHelper;
     QmlDocument *qml = QmlDocument::create("asset:///main.qml");
     if (!qml->hasErrors()) {
@@ -24,6 +28,7 @@ Tasks::Tasks() : QObject() {
     		}
 
     		Application::instance()->setScene(navigationPane);
+    		setCover();
     	}
     }
 }
@@ -76,4 +81,38 @@ void Tasks::deleteRecord() {
 		if (_dbHelper->deleteById(map["id"]))
 			_dataModel->remove(map);
 	}
+}
+
+unsigned int Tasks::taskCount() const {
+	return _dataModel != NULL ? _dataModel->size() : 0;
+}
+
+unsigned int Tasks::doneTaskCount() const {
+	unsigned int ret = 0;
+	if (_dataModel) {
+		for (int i = 0; i < _dataModel->size(); ++i) {
+			QVariantList vlo;
+			vlo << i;
+			for (int j = 0; j < _dataModel->childCount(vlo); ++j) {
+				QVariantList vl;
+				vl << i << j;
+				QMap<QString, QVariant> item = _dataModel->data(vl).toMap();
+				if (item.contains("done") && item.value("done") == 1)
+					++ret;
+			}
+		}
+	}
+	return ret;
+}
+
+unsigned int Tasks::todoTaskCount() const {
+	return taskCount() - doneTaskCount();
+}
+
+QString Tasks::randomTodoTask() const {
+	return "";
+}
+
+void Tasks::setCover() {
+	Application::instance()->setCover(new ActiveFrame(this));
 }
