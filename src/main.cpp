@@ -10,7 +10,7 @@
 using namespace bb::cascades;
 
 #ifdef QT_DEBUG
-void standardOutput(QtMsgType type, const char* msg) {
+void standardOutput(QtMsgType /*type*/, const char* msg) {
 	fprintf(stdout, "%s\n", msg);
 	fflush(stdout);
 }
