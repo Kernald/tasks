@@ -1,10 +1,12 @@
 // Tabbed pane project template
 #include "Tasks.hpp"
 
+#include <ctime>
+
 #include <bb/cascades/Application>
 
-#include <QLocale>
-#include <QTranslator>
+#include <QtCore/QLocale>
+#include <QtCore/QTranslator>
 #include <Qt/qdeclarativedebug.h>
 
 using namespace bb::cascades;
@@ -21,6 +23,7 @@ Q_DECL_EXPORT int main(int argc, char **argv) {
 #ifdef QT_DEBUG
     qInstallMsgHandler(standardOutput);
 #endif // QT_DEBUG
+    qsrand(std::time(NULL));
 
     // localization support
     QTranslator translator;

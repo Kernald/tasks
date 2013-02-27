@@ -19,6 +19,6 @@ ActiveFrame::ActiveFrame(Tasks* app) : SceneCover(this), _app(app) {
 ActiveFrame::~ActiveFrame() {}
 
 void ActiveFrame::update() {
-	_count->setText(QString("Done tasks: %1/%2").arg(_app->doneTaskCount()).arg(_app->taskCount()));
+	_count->setText(tr("Done tasks: %1/%2").arg(_app->doneTaskCount()).arg(_app->taskCount()));
 	_random->setText(_app->randomTodoTask());
 }

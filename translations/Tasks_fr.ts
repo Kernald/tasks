@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="fr_FR">
 <context>
+    <name>ActiveFrame</name>
+    <message>
+        <location filename="../src/ActiveFrame.cpp" line="22"/>
+        <source>Done tasks: %1/%2</source>
+        <translation>Tâches faites : %1/%2</translation>
+    </message>
+</context>
+<context>
     <name>AddPage</name>
     <message>
         <location filename="../assets/AddPage/AddPage.qml" line="9"/>
@@ -79,6 +87,14 @@
         <location filename="../assets/TaskPage/TaskPage.qml" line="130"/>
         <source>Delete</source>
         <translation>Supprimer</translation>
+    </message>
+</context>
+<context>
+    <name>Tasks</name>
+    <message>
+        <location filename="../src/Tasks.cpp" line="147"/>
+        <source>Nothing to do!</source>
+        <translation>Rien à faire !</translation>
     </message>
 </context>
 <context>

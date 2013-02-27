@@ -1,20 +1,36 @@
 import bb.cascades 1.0
 
 Container {
-    layout: DockLayout {
+    layout: AbsoluteLayout {
     }
-    Label {
-        objectName: "count"
+    ImageView {
         horizontalAlignment: HorizontalAlignment.Left
         verticalAlignment: VerticalAlignment.Top
-        //textStyle.color: Color.create("#ebebeb")
+        imageSource: "asset:///images/Cover-title.png"
+        minWidth: 334
+        layoutProperties: AbsoluteLayoutProperties {
+            positionX: 0
+            positionY: 0
+        }
+    }
+    
+    Label {
+        objectName: "count"
+        textStyle.color: Color.create("#fafafa")
         textStyle.fontSize: FontSize.Small
+        layoutProperties: AbsoluteLayoutProperties {
+            positionX: 15
+            positionY: 10
+        }
     }
     
     Label {
         objectName: "randomTask"
-        horizontalAlignment: HorizontalAlignment.Left
-        verticalAlignment: VerticalAlignment.Center
         textStyle.fontSize: FontSize.Small
+        layoutProperties: AbsoluteLayoutProperties {
+            positionX: 15
+            positionY: 64
+        }
+        maxWidth: 289
     }
 }

@@ -125,7 +125,26 @@ unsigned int Tasks::todoTaskCount() const {
 }
 
 QString Tasks::randomTodoTask() const {
-	return "";
+	unsigned int todoCount = todoTaskCount();
+	if (todoCount > 0) {
+		int id = qrand() % todoCount;
+		int count = -1;
+		for (int i = 0; i < _dataModel->size(); ++i) {
+			QVariantList vlo;
+			vlo << i;
+			for (int j = 0; j < _dataModel->childCount(vlo); ++j) {
+				QVariantList vl;
+				vl << i << j;
+				QMap<QString, QVariant> item = _dataModel->data(vl).toMap();
+				if (item.contains("done") && item.value("done") == 0) {
+					++count;
+					if (count == id)
+						return item.value("title").toString();
+				}
+			}
+		}
+	}
+	return tr("Nothing to do!");
 }
 
 void Tasks::setCover() {

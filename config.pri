@@ -25,7 +25,9 @@ lupdate_inclusion {
         $$BASEDIR/../assets/*.qml \
         $$BASEDIR/../assets/AddPage/*.qml \
         $$BASEDIR/../assets/AppCover/*.qml \
-        $$BASEDIR/../assets/TaskPage/*.qml
+        $$BASEDIR/../assets/TaskPage/*.qml \
+        $$BASEDIR/../src/ActiveFrame.cpp \
+        $$BASEDIR/../src/Tasks.cpp
 }
 
 TRANSLATIONS = \
