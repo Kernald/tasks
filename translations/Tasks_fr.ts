@@ -86,32 +86,48 @@
     <message>
         <location filename="../assets/main.qml" line="12"/>
         <source>Tasks</source>
-        <translation type="unfinished">Tâches</translation>
+        <translation>Tâches</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="52"/>
         <source>View</source>
-        <translation>Détails</translation>
+        <translation type="obsolete">Détails</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="60"/>
-        <location filename="../assets/main.qml" line="91"/>
+        <location filename="../assets/main.qml" line="75"/>
+        <location filename="../assets/main.qml" line="112"/>
         <source>Done</source>
         <translation>Fait</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="60"/>
-        <location filename="../assets/main.qml" line="91"/>
+        <location filename="../assets/main.qml" line="75"/>
+        <location filename="../assets/main.qml" line="112"/>
         <source>Todo</source>
         <translation>À faire</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="78"/>
+        <location filename="../assets/main.qml" line="51"/>
+        <location filename="../assets/main.qml" line="99"/>
         <source>Delete</source>
         <translation>Supprimer</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="169"/>
+        <location filename="../assets/main.qml" line="39"/>
+        <source>%1 items selected</source>
+        <translation>%1 éléments sélectionnés</translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="41"/>
+        <source>1 item selected</source>
+        <translation>1 élément sélectionné</translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="43"/>
+        <location filename="../assets/main.qml" line="48"/>
+        <source>None selected</source>
+        <translation>Aucune sélection</translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="160"/>
         <source>Add</source>
         <translation>Ajouter</translation>
     </message>

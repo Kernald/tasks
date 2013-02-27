@@ -21,11 +21,9 @@ NavigationPane {
                 layout: StackListLayout {
                     headerMode: ListHeaderMode.Sticky
                 }
-                dataModel: tasksModel
-                
-                function viewTriggered() {
-                    var page = taskPageDefinition.createObject();
-                    nav.push(page);
+                dataModel: TaskModel {
+                    id: tasksModel
+                    objectName: "tasksModel"
                 }
                 
                 function updateDoneStatusTriggered() {
@@ -35,27 +33,44 @@ NavigationPane {
                 function deleteTriggered() {
                     _taskApp.deleteRecord();
                 }
-                                            
+                
+                function updateMultiStatus() {
+                    if (selectionList().length > 1) {
+                        multiSelectHandler.status = qsTr("%1 items selected").arg(selectionList().length);
+                    } else if (selectionList().length == 1) {
+                        multiSelectHandler.status = qsTr("1 item selected");
+                    } else {
+                        multiSelectHandler.status = qsTr("None selected");
+                    }
+                }
+                
+                multiSelectHandler {
+                    status: qsTr("None selected")
+                    actions: [
+                        DeleteActionItem {
+                            title: qsTr("Delete")
+                            onTriggered: {
+                                var selectionList = tasksList.selectionList();
+                                tasksList.clearSelection();
+                                _taskApp.deleteRecords(selectionList);
+                            }
+                        }
+                    ]
+                }
+                
                 listItemComponents: [
                     ListItemComponent {
                         id: rootId
                         type: "item"
                         StandardListItem {
                             imageSpaceReserved: false
-                            title: (ListItemData.done == 1 ? "<html><span style='text-decoration:line-through'>" : "") + ListItemData.title + (ListItemData.done == 1 ? "</span></html>" : "")
+                            property string taskTitle: ListItemData.title
+                            title: (ListItemData.done == 1 ? "<html><span style='text-decoration:line-through'>" : "") + taskTitle + (ListItemData.done == 1 ? "</span></html>" : "")
                             id: taskItemId
                             
                             contextActions: [
                                 ActionSet {
-                                    title: contentView.title
-                                    ActionItem {
-                                        title: qsTr("View")
-                                        imageSource: "asset:///images/ViewDetails.png"
-                                        
-                                        onTriggered: {
-                                            taskItemId.ListItem.view.viewTriggered();
-                                        }
-                                    }
+                                    title: taskItemId.taskTitle
                                     ActionItem {
                                         title: ListItemData.done == 0 ? qsTr("Done") : qsTr("Todo")
                                         imageSource: "asset:///images/Done.png"
@@ -71,6 +86,12 @@ NavigationPane {
                                         }
                                         onTriggered: {
                                             data = ListItemData.title + (ListItemData.description != "" ? " - " + ListItemData.description : "");
+                                        }
+                                    }
+                                    MultiSelectActionItem {
+                                        multiSelectHandler: taskItemId.ListItem.view.multiSelectHandler
+                                        onTriggered: {
+                                            multiSelectHandler.active = true
                                         }
                                     }
                                     DeleteActionItem {
@@ -94,47 +115,17 @@ NavigationPane {
                 ]
                 onTriggered: {
                     if (indexPath.length > 1) {
-                        clearSelection();
                         select(indexPath);
-                        var page = taskPageDefinition.createObject();
-                        nav.push(page)
-                    }
+	                    contentView = dataModel.data(indexPath);
+	                    var page = taskPageDefinition.createObject();
+	                    nav.push(page)
+	                }
                 }
                 onSelectionChanged: {
-                    if (selected) {
+                    if (indexPath.length > 1)
                         contentView = dataModel.data(indexPath);
-                    }
+	                updateMultiStatus();
                 }
-                attachedObjects: [
-                    GroupDataModel {
-                        id: tasksModel
-                        objectName: "tasksModel"
-                        grouping: ItemGrouping.ByFullValue
-                        sortingKeys: [
-                            "done",
-                            "title"
-                        ]
-                        onItemAdded: {
-                            if (addShown) {
-                                if (nav.top == taskListPage) {
-                                    tasksList.clearSelection();
-                                    tasksList.scrollToItem(indexPath, ScrollAnimation.Default);
-                                }
-                            }
-                        }
-                        onItemRemoved: {
-                            var lastIndexPath = last();
-                            if (lastIndexPath[0] == undefined) {
-                                if (nav.top != taskListPage) {
-                                    nav.popAndDelete();
-                                }
-                            }
-                        }
-                        onItemUpdated: {
-                            contentView = data(indexPath);
-                        }
-                    }
-                ]
             }
             attachedObjects: [
                 ImagePaintDefinition {
@@ -176,14 +167,14 @@ NavigationPane {
         ]
     }
     
-	function displayAddSheet() {
+    function displayAddSheet() {
         addSheet.open();
         nav.addShown = true;
     }
     
     onTopChanged: {
         if (page == taskListPage) {
-            taskList.clearSelection();
+            tasksList.clearSelection();
         }
     }
     

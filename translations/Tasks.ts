@@ -69,10 +69,6 @@
 <context>
     <name>main</name>
     <message>
-        <source>View</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Done</source>
         <translation type="unfinished"></translation>
     </message>
@@ -90,6 +86,18 @@
     </message>
     <message>
         <source>Tasks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 items selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1 item selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None selected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

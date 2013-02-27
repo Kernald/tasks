@@ -77,10 +77,25 @@ void Tasks::updateSelectedRecordDoneStatus(int done) {
 void Tasks::deleteRecord() {
 	QVariantList indexPath = _listView->selected();
 	if (!indexPath.isEmpty()) {
-		QVariantMap map = _dataModel->data(indexPath).toMap();
-		if (_dbHelper->deleteById(map["id"]))
-			_dataModel->remove(map);
+		deleteRecord(indexPath);
 	}
+}
+
+void Tasks::deleteRecord(QVariantList indexPath) {
+	QVariantMap map = _dataModel->data(indexPath).toMap();
+	if (_dbHelper->deleteById(map["id"]))
+		_dataModel->remove(map);
+}
+
+void Tasks::deleteRecords(const QVariantList& selectionList) {
+    if (selectionList.at(0).canConvert<QVariantList>()) {
+        for (int i = selectionList.count() - 1; i >= 0; i--) {
+            QVariantList indexPath = selectionList.at(i).toList();
+            deleteRecord(indexPath);
+        }
+    } else {
+    	deleteRecord(selectionList);
+    }
 }
 
 unsigned int Tasks::taskCount() const {

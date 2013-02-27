@@ -1,7 +1,8 @@
 #ifndef __TASKS_HPP__
 #define __TASKS_HPP__
 
-#include <QObject>
+#include <QtCore/QObject>
+#include <QtCore/QVariantList>
 
 namespace bb {
 	namespace cascades {
@@ -26,6 +27,8 @@ public:
     Q_INVOKABLE void updateSelectedRecord(const QString& title, const QString& description, int done);
     Q_INVOKABLE void updateSelectedRecordDoneStatus(int done);
     Q_INVOKABLE void deleteRecord();
+    Q_INVOKABLE void deleteRecord(QVariantList indexPath);
+    Q_INVOKABLE void deleteRecords(const QVariantList& selectionList);
     Q_INVOKABLE unsigned int taskCount() const;
     Q_INVOKABLE unsigned int doneTaskCount() const;
     Q_INVOKABLE unsigned int todoTaskCount() const;
