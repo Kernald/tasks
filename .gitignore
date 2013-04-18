@@ -3,3 +3,7 @@ arm/
 x86/
 
 *.qm
+
+.settings
+
+assets/.assets.index
