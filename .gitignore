@@ -7,3 +7,5 @@ x86/
 .settings
 
 assets/.assets.index
+
+config.pri
